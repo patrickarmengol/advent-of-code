@@ -16,7 +16,7 @@ var example1Text string
 //go:embed example2.txt
 var example2Text string
 
-func TestExamplePart1(t *testing.T) {
+func TestPart1Example(t *testing.T) {
 	if helpers.IsEmpty(example1Text) {
 		t.Fatalf("empty example.txt file")
 	}
@@ -31,7 +31,7 @@ func TestExamplePart1(t *testing.T) {
 	}
 }
 
-func TestActualPart1(t *testing.T) {
+func TestPart1Actual(t *testing.T) {
 	if helpers.IsEmpty(inputText) {
 		t.Fatalf("empty input.txt file")
 	}
@@ -46,7 +46,7 @@ func TestActualPart1(t *testing.T) {
 	}
 }
 
-func TestExamplePart2(t *testing.T) {
+func TestPart2Example(t *testing.T) {
 	if helpers.IsEmpty(example2Text) {
 		t.Fatalf("empty example.txt file")
 	}
@@ -61,7 +61,7 @@ func TestExamplePart2(t *testing.T) {
 	}
 }
 
-func TestActualPart2(t *testing.T) {
+func TestPart2Actual(t *testing.T) {
 	if helpers.IsEmpty(inputText) {
 		t.Fatalf("empty input.txt file")
 	}
