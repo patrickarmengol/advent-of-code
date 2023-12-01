@@ -1,4 +1,4 @@
-package helpers
+package parse
 
 import (
 	"bufio"

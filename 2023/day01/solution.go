@@ -7,14 +7,15 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/patrickarmengol/advent-of-code/2023/helpers"
+	"github.com/patrickarmengol/advent-of-code/2023/helpers/parse"
 )
 
 func Part1(input string) (string, error) {
-	lines, err := helpers.GetLines(input)
+	lines, err := parse.GetLines(input)
 	if err != nil {
 		return "", err
 	}
+
 	total := 0
 	for _, line := range lines {
 		left := strings.IndexAny(line, "0123456789")
@@ -25,11 +26,12 @@ func Part1(input string) (string, error) {
 		}
 		total += calib
 	}
+
 	return strconv.Itoa(total), nil
 }
 
 func Part2(input string) (string, error) {
-	lines, err := helpers.GetLines(input)
+	lines, err := parse.GetLines(input)
 	if err != nil {
 		return "", err
 	}
@@ -70,12 +72,14 @@ func Part2(input string) (string, error) {
 			default:
 			}
 		}
+
 		left := nums[0]
 		right := nums[len(nums)-1]
 		calib, err := strconv.Atoi(fmt.Sprintf("%s%s", left, right))
 		if err != nil {
 			return "", err
 		}
+
 		total += calib
 	}
 
