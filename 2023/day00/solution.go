@@ -4,16 +4,10 @@ import (
 	_ "embed"
 )
 
-//go:embed input.txt
-var inputText string
-
-//go:embed example.txt
-var exampleText string
-
-func Part1(input string) string {
-	return "qwer"
+func Part1(input string) (string, error) {
+	return "qwer", nil
 }
 
-func Part2(input string) string {
-	return "zxcv"
+func Part2(input string) (string, error) {
+	return "zxcv", nil
 }

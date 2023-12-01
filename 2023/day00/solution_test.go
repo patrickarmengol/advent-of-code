@@ -7,54 +7,68 @@ import (
 	"github.com/patrickarmengol/advent-of-code/2023/helpers"
 )
 
-func TestSolutions(t *testing.T) {
-	// check text files populated
+//go:embed input.txt
+var inputText string
+
+//go:embed example.txt
+var exampleText string
+
+func TestPart1Example(t *testing.T) {
 	if helpers.IsEmpty(exampleText) {
 		t.Fatalf("empty example.txt file")
 	}
+
+	expected := "__UNKNOWN__"
+	result, err := Part1(exampleText)
+	if err != nil {
+		t.Errorf("encountered error: %v", err)
+	}
+	if expected != result {
+		t.Errorf("got: %v; want %v", result, expected)
+	}
+}
+
+func TestPart1Actual(t *testing.T) {
 	if helpers.IsEmpty(inputText) {
 		t.Fatalf("empty input.txt file")
 	}
 
-	// setup tests (expected must be filled while solving)
-	tests := []struct {
-		name     string
-		data     string
-		sol      func(string) string
-		expected string
-	}{
-		{
-			name:     "example-part1",
-			data:     exampleText,
-			sol:      Part1,
-			expected: "__UNKNOWN__",
-		},
-		{
-			name:     "actual-part1",
-			data:     inputText,
-			sol:      Part1,
-			expected: "__UNKNOWN__",
-		},
-		{
-			name:     "example-part2",
-			data:     exampleText,
-			sol:      Part2,
-			expected: "__UNKNOWN__",
-		},
-		{
-			name:     "actual-part2",
-			data:     inputText,
-			sol:      Part2,
-			expected: "__UNKNOWN__",
-		},
+	expected := "__UNKNOWN__"
+	result, err := Part1(inputText)
+	if err != nil {
+		t.Errorf("encountered error: %v", err)
+	}
+	if expected != result {
+		t.Errorf("got: %v; want %v", result, expected)
+	}
+}
+
+func TestPart2Example(t *testing.T) {
+	if helpers.IsEmpty(exampleText) {
+		t.Fatalf("empty example.txt file")
 	}
 
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			result := tt.sol(tt.data)
-			if result != tt.expected {
-				t.Errorf("got: %v; want %v", result, tt.expected)
-			}
-		})
+	expected := "__UNKNOWN__"
+	result, err := Part2(exampleText)
+	if err != nil {
+		t.Errorf("encountered error: %v", err)
+	}
+	if expected != result {
+		t.Errorf("got: %v; want %v", result, expected)
+	}
+}
+
+func TestPart2Actual(t *testing.T) {
+	if helpers.IsEmpty(inputText) {
+		t.Fatalf("empty input.txt file")
+	}
+
+	expected := "__UNKNOWN__"
+	result, err := Part2(inputText)
+	if err != nil {
+		t.Errorf("encountered error: %v", err)
+	}
+	if expected != result {
+		t.Errorf("got: %v; want %v", result, expected)
 	}
 }
