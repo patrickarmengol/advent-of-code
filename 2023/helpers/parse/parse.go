@@ -1,21 +1,13 @@
 package parse
 
 import (
-	"bufio"
-	"fmt"
 	"strings"
 )
 
-func GetLines(text string) ([]string, error) {
-	var lines []string
+func Lines(text string) []string {
+	return strings.Split(text, "\n")
+}
 
-	s := bufio.NewScanner(strings.NewReader(text))
-	for s.Scan() {
-		lines = append(lines, s.Text())
-	}
-	if s.Err() != nil {
-		return nil, fmt.Errorf("failed to scan reader: %w", s.Err())
-	}
-
-	return lines, nil
+func Words(text string) []string {
+	return strings.Split(text, " ")
 }

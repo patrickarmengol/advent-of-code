@@ -11,10 +11,7 @@ import (
 )
 
 func Part1(input string) (string, error) {
-	lines, err := parse.GetLines(input)
-	if err != nil {
-		return "", err
-	}
+	lines := parse.Lines(input)
 
 	total := 0
 	for _, line := range lines {
@@ -31,10 +28,7 @@ func Part1(input string) (string, error) {
 }
 
 func Part2(input string) (string, error) {
-	lines, err := parse.GetLines(input)
-	if err != nil {
-		return "", err
-	}
+	lines := parse.Lines(input)
 
 	rx := regexp.MustCompile(`(one|two|three|four|five|six|seven|eight|nine|\d)`)
 

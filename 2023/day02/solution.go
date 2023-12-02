@@ -1,6 +1,9 @@
 package day02
 
 import (
+	"errors"
+	"fmt"
+	"slices"
 	"strconv"
 	"strings"
 
@@ -8,36 +11,28 @@ import (
 )
 
 func Part1(input string) (string, error) {
-	games, err := parse.GetLines(input)
-	if err != nil {
-		return "", err
-	}
+	games := parse.Lines(input)
 
-	var (
-		maxR = 12
-		maxG = 13
-		maxB = 14
-	)
+	colorMaxes := map[string]int{
+		"red":   12,
+		"green": 13,
+		"blue":  14,
+	}
 
 	total := 0
 gameloop:
 	for i, game := range games {
-		draws := getAllDraws(game)
+		draws, err := getAllDraws(game)
+		if err != nil {
+			return "", err
+		}
 		for _, draw := range draws {
-			switch draw.color {
-			case "red":
-				if draw.num > maxR {
-					continue gameloop
-				}
-			case "green":
-				if draw.num > maxG {
-					continue gameloop
-				}
-			case "blue":
-				if draw.num > maxB {
-					continue gameloop
-				}
-			default:
+			cMax, ok := colorMaxes[draw.color]
+			if !ok {
+				return "", errors.New(fmt.Sprintf("draw color %v is not found in color max map", draw.color))
+			}
+			if draw.num > cMax {
+				continue gameloop
 			}
 		}
 		total += i + 1
@@ -46,32 +41,18 @@ gameloop:
 }
 
 func Part2(input string) (string, error) {
-	games, err := parse.GetLines(input)
-	if err != nil {
-		return "", err
-	}
+	games := parse.Lines(input)
 
 	total := 0
 	for _, game := range games {
-		var minR, minG, minB int
-		draws := getAllDraws(game)
+		colorMins := map[string]int{}
+		draws, _ := getAllDraws(game)
 		for _, draw := range draws {
-			switch draw.color {
-			case "red":
-				if draw.num > minR {
-					minR = draw.num
-				}
-			case "green":
-				if draw.num > minG {
-					minG = draw.num
-				}
-			case "blue":
-				if draw.num > minB {
-					minB = draw.num
-				}
+			if draw.num > colorMins[draw.color] {
+				colorMins[draw.color] = draw.num
 			}
 		}
-		total += minR * minG * minB
+		total += colorMins["red"] * colorMins["green"] * colorMins["blue"]
 	}
 	return strconv.Itoa(total), nil
 }
@@ -81,7 +62,7 @@ type draw struct {
 	color string
 }
 
-func getAllDraws(game string) []draw {
+func getAllDraws(game string) ([]draw, error) {
 	draws := []draw{}
 	sets := strings.Split(strings.Split(game, ": ")[1], "; ")
 	for _, set := range sets {
@@ -90,11 +71,14 @@ func getAllDraws(game string) []draw {
 			drawParts := strings.Split(d, " ")
 			num, err := strconv.Atoi(drawParts[0])
 			if err != nil {
-				panic("invalid parsing of num in draw pair")
+				return nil, errors.New(fmt.Sprintln("problem parsing num for draw:", d))
 			}
 			color := drawParts[1]
+			if !slices.Contains([]string{"red", "green", "blue"}, color) {
+				return nil, errors.New(fmt.Sprintln("problem parsing color foor draw:", d))
+			}
 			draws = append(draws, draw{num: num, color: color})
 		}
 	}
-	return draws
+	return draws, nil
 }
