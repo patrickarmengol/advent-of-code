@@ -10,6 +10,20 @@ import (
 	"github.com/patrickarmengol/advent-of-code/2023/helpers/parse"
 )
 
+// notes:
+// each set of cubes doesn't really matter, individual draws for a certain color do
+// so just get all draws for each color into a slice and iterate
+// this code avoids using regex for parsing, but would likely be easier with it
+//
+// part 1:
+// iterate through games
+// if all draws are smaller than their color's max, add game num to total
+//
+// part 2:
+// iterate through games
+// iterate through draws, updating "min" when larger value for a color is found
+// add the product of mins to the total
+
 func Part1(input string) (string, error) {
 	games := parse.Lines(input)
 
