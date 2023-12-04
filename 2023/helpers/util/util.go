@@ -1,8 +1,12 @@
 package util
 
-import "fmt"
+import (
+	"fmt"
 
-func Make2D[T any](n, m int) [][]T {
+	"github.com/patrickarmengol/advent-of-code/2023/helpers/parse"
+)
+
+func Make2DGrid[T any](n, m int) [][]T {
 	matrix := make([][]T, n)
 	rows := make([]T, n*m)
 	for i, startRow := 0, 0; i < n; i, startRow = i+1, startRow+m {
@@ -10,6 +14,19 @@ func Make2D[T any](n, m int) [][]T {
 		matrix[i] = rows[startRow:endRow:endRow]
 	}
 	return matrix
+}
+
+func Gridify(s string) [][]rune {
+	lines := parse.Lines(s)
+
+	grid := Make2DGrid[rune](len(lines), len(lines[0]))
+	for i, line := range lines {
+		for j, char := range line {
+			grid[i][j] = char
+		}
+	}
+
+	return grid
 }
 
 type Set[T comparable] map[T]struct{}
