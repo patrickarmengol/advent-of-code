@@ -2,6 +2,7 @@ package util
 
 import (
 	"fmt"
+	"strconv"
 
 	"github.com/patrickarmengol/advent-of-code/2023/helpers/parse"
 )
@@ -80,4 +81,16 @@ func (s Set[T]) Intersection(s2 Set[T]) Set[T] {
 		}
 	}
 	return result
+}
+
+func AtoiSlice(vals []string) ([]int, error) {
+	result := make([]int, 0, len(vals))
+	for _, va := range vals {
+		vi, err := strconv.Atoi(va)
+		if err != nil {
+			return nil, err
+		}
+		result = append(result, vi)
+	}
+	return result, nil
 }
