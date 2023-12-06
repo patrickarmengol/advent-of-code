@@ -7,7 +7,3 @@ import (
 func Lines(text string) []string {
 	return strings.Split(strings.TrimRight(text, "\n"), "\n")
 }
-
-func Words(text string) []string {
-	return strings.Split(text, " ")
-}
