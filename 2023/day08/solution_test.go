@@ -49,7 +49,7 @@ func TestPart2Example(t *testing.T) {
 func TestPart2Actual(t *testing.T) {
 	assert.FileNotEmpty(t, "input.txt", inputText)
 
-	expected := 0
+	expected := 18625484023687
 	result, err := Part2(inputText)
 
 	assert.NilError(t, err)
