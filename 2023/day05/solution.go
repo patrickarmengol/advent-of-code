@@ -2,7 +2,7 @@ package day05
 
 import (
 	"cmp"
-	_ "embed"
+	
 	"errors"
 	"fmt"
 	"slices"

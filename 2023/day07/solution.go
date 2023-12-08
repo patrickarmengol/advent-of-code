@@ -1,7 +1,7 @@
 package day06
 
 import (
-	_ "embed"
+	
 	"fmt"
 	"slices"
 	"strconv"

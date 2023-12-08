@@ -1,7 +1,7 @@
 package day04
 
 import (
-	_ "embed"
+	
 	"strings"
 
 	"github.com/patrickarmengol/advent-of-code/2023/helpers/parse"

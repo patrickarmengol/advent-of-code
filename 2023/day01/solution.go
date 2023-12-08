@@ -1,7 +1,7 @@
 package day01
 
 import (
-	_ "embed"
+	
 	"fmt"
 	"regexp"
 	"strconv"

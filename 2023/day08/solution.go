@@ -1,7 +1,7 @@
 package day08
 
 import (
-	_ "embed"
+	
 	"slices"
 	"strings"
 
