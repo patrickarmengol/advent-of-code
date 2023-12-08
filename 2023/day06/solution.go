@@ -16,15 +16,15 @@ import (
 // use quadratic formula to find the range in which seconds_held produces a better result than record
 // a is known, b is known, c is set to record
 
-func Part1(input string) (string, error) {
+func Part1(input string) (int, error) {
 	lines := parse.Lines(input)
 	times, err := util.AtoiSlice(strings.Fields(strings.Split(lines[0], ": ")[1]))
 	if err != nil {
-		return "", err
+		return 0, err
 	}
 	distances, err := util.AtoiSlice(strings.Fields(strings.Split(lines[1], ": ")[1]))
 	if err != nil {
-		return "", err
+		return 0, err
 	}
 
 	result := 1
@@ -43,18 +43,18 @@ func Part1(input string) (string, error) {
 		// fmt.Println("num ways:", numWays)
 		result *= numWays
 	}
-	return strconv.Itoa(result), nil
+	return result, nil
 }
 
-func Part2(input string) (string, error) {
+func Part2(input string) (int, error) {
 	lines := parse.Lines(input)
 	time, err := strconv.Atoi(strings.Replace(strings.Split(lines[0], ": ")[1], " ", "", -1))
 	if err != nil {
-		return "", err
+		return 0, err
 	}
 	distance, err := strconv.Atoi(strings.Replace(strings.Split(lines[1], ": ")[1], " ", "", -1))
 	if err != nil {
-		return "", err
+		return 0, err
 	}
 
 	timeAllowed := time
@@ -70,5 +70,5 @@ func Part2(input string) (string, error) {
 	numWays := big - small + 1
 	// fmt.Println("num ways:", numWays)
 
-	return strconv.Itoa(numWays), nil
+	return numWays, nil
 }

@@ -117,10 +117,10 @@ func compareHands(jr bool) func(a, b hand) int {
 	}
 }
 
-func Part1(input string) (string, error) {
+func Part1(input string) (int, error) {
 	hands, err := parseHands(input, false)
 	if err != nil {
-		return "", err
+		return 0, err
 	}
 	slices.SortFunc(hands, compareHands(false))
 
@@ -130,13 +130,13 @@ func Part1(input string) (string, error) {
 		total += h.bid * rank
 	}
 
-	return strconv.Itoa(total), nil
+	return total, nil
 }
 
-func Part2(input string) (string, error) {
+func Part2(input string) (int, error) {
 	hands, err := parseHands(input, true)
 	if err != nil {
-		return "", err
+		return 0, err
 	}
 	slices.SortFunc(hands, compareHands(true))
 
@@ -146,5 +146,5 @@ func Part2(input string) (string, error) {
 		total += h.bid * rank
 	}
 
-	return strconv.Itoa(total), nil
+	return total, nil
 }

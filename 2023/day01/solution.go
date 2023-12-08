@@ -10,7 +10,7 @@ import (
 	"github.com/patrickarmengol/advent-of-code/2023/helpers/parse"
 )
 
-func Part1(input string) (string, error) {
+func Part1(input string) (int, error) {
 	lines := parse.Lines(input)
 
 	total := 0
@@ -19,15 +19,15 @@ func Part1(input string) (string, error) {
 		right := strings.LastIndexAny(line, "0123456789")
 		calib, err := strconv.Atoi(fmt.Sprintf("%c%c", line[left], line[right]))
 		if err != nil {
-			return "", err
+			return 0, err
 		}
 		total += calib
 	}
 
-	return strconv.Itoa(total), nil
+	return total, nil
 }
 
-func Part2(input string) (string, error) {
+func Part2(input string) (int, error) {
 	lines := parse.Lines(input)
 
 	rx := regexp.MustCompile(`(one|two|three|four|five|six|seven|eight|nine|\d)`)
@@ -71,11 +71,11 @@ func Part2(input string) (string, error) {
 		right := nums[len(nums)-1]
 		calib, err := strconv.Atoi(fmt.Sprintf("%s%s", left, right))
 		if err != nil {
-			return "", err
+			return 0, err
 		}
 
 		total += calib
 	}
 
-	return strconv.Itoa(total), nil
+	return total, nil
 }

@@ -19,7 +19,7 @@ var example2Text string
 func TestPart1Example(t *testing.T) {
 	assert.FileNotEmpty(t, "example1.txt", example1Text)
 
-	expected := "142"
+	expected := 142
 	result, err := Part1(example1Text)
 
 	assert.NilError(t, err)
@@ -29,7 +29,7 @@ func TestPart1Example(t *testing.T) {
 func TestPart1Actual(t *testing.T) {
 	assert.FileNotEmpty(t, "input.txt", inputText)
 
-	expected := "53921"
+	expected := 53921
 	result, err := Part1(inputText)
 
 	assert.NilError(t, err)
@@ -39,7 +39,7 @@ func TestPart1Actual(t *testing.T) {
 func TestPart2Example(t *testing.T) {
 	assert.FileNotEmpty(t, "example2.txt", example2Text)
 
-	expected := "281"
+	expected := 281
 	result, err := Part2(example2Text)
 
 	assert.NilError(t, err)
@@ -49,7 +49,7 @@ func TestPart2Example(t *testing.T) {
 func TestPart2Actual(t *testing.T) {
 	assert.FileNotEmpty(t, "input.txt", inputText)
 
-	expected := "54676"
+	expected := 54676
 	result, err := Part2(inputText)
 
 	assert.NilError(t, err)

@@ -89,7 +89,7 @@ var (
 	blueRX  = regexp.MustCompile(`(\d+) blue`)
 )
 
-func Part1(input string) (string, error) {
+func Part1(input string) (int, error) {
 	total := 0
 	for i, game := range parse.Lines(input) {
 		maxR := slices.Max(numsFromMatches(redRX.FindAllStringSubmatch(game, -1)))
@@ -100,10 +100,10 @@ func Part1(input string) (string, error) {
 		}
 		total += i + 1
 	}
-	return strconv.Itoa(total), nil
+	return total, nil
 }
 
-func Part2(input string) (string, error) {
+func Part2(input string) (int, error) {
 	total := 0
 	for _, game := range parse.Lines(input) {
 		maxR := slices.Max(numsFromMatches(redRX.FindAllStringSubmatch(game, -1)))
@@ -111,7 +111,7 @@ func Part2(input string) (string, error) {
 		maxB := slices.Max(numsFromMatches(blueRX.FindAllStringSubmatch(game, -1)))
 		total += maxR * maxG * maxB
 	}
-	return strconv.Itoa(total), nil
+	return total, nil
 }
 
 func numsFromMatches(matches [][]string) []int {

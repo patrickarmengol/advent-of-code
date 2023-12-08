@@ -2,14 +2,13 @@ package day04
 
 import (
 	_ "embed"
-	"strconv"
 	"strings"
 
 	"github.com/patrickarmengol/advent-of-code/2023/helpers/parse"
 	"github.com/patrickarmengol/advent-of-code/2023/helpers/util"
 )
 
-func Part1(input string) (string, error) {
+func Part1(input string) (int, error) {
 	cards := parse.Lines(input)
 	total := 0
 	for _, card := range cards {
@@ -21,10 +20,10 @@ func Part1(input string) (string, error) {
 			total += 1 << (nMatches - 1) // equiv 2^(nMatches - 1)
 		}
 	}
-	return strconv.Itoa(total), nil
+	return total, nil
 }
 
-func Part2(input string) (string, error) {
+func Part2(input string) (int, error) {
 	cards := parse.Lines(input)
 
 	cardCopyCount := map[int]int{}
@@ -46,5 +45,5 @@ func Part2(input string) (string, error) {
 		total += (1 + cardCopyCount[cardIndex])
 	}
 
-	return strconv.Itoa(total), nil
+	return total, nil
 }

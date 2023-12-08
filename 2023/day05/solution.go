@@ -6,7 +6,6 @@ import (
 	"errors"
 	"fmt"
 	"slices"
-	"strconv"
 	"strings"
 
 	"github.com/patrickarmengol/advent-of-code/2023/helpers/parse"
@@ -70,17 +69,17 @@ func (c converter) convertSpan(s span) []span {
 	return a
 }
 
-func Part1(input string) (string, error) {
+func Part1(input string) (int, error) {
 	lines := parse.Lines(input)
 
 	seeds, err := parseSeeds(lines[0])
 	if err != nil {
-		return "", err
+		return 0, err
 	}
 
 	convs, err := parseConverters(lines[1:])
 	if err != nil {
-		return "", err
+		return 0, err
 	}
 
 	locations := []int{}
@@ -90,20 +89,20 @@ func Part1(input string) (string, error) {
 		}
 		locations = append(locations, v)
 	}
-	return strconv.Itoa(slices.Min(locations)), nil
+	return slices.Min(locations), nil
 }
 
-func Part2(input string) (string, error) {
+func Part2(input string) (int, error) {
 	lines := parse.Lines(input)
 
 	seedSpans, err := parseSeedSpans(lines[0])
 	if err != nil {
-		return "", err
+		return 0, err
 	}
 
 	convs, err := parseConverters(lines[1:])
 	if err != nil {
-		return "", err
+		return 0, err
 	}
 
 	locations := []span{}
@@ -124,7 +123,7 @@ func Part2(input string) (string, error) {
 		return cmp.Compare(a.start, b.start)
 	})
 
-	return strconv.Itoa(minSpan.start), nil
+	return minSpan.start, nil
 }
 
 // parsers

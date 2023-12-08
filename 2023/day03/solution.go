@@ -8,7 +8,7 @@ import (
 
 var numerics = util.NewSet[rune]([]rune("0123456789")...)
 
-func Part1(input string) (string, error) {
+func Part1(input string) (int, error) {
 	grid := util.Gridify(input)
 
 	total := 0
@@ -24,10 +24,10 @@ func Part1(input string) (string, error) {
 		total += part.val
 	}
 
-	return strconv.Itoa(total), nil
+	return total, nil
 }
 
-func Part2(input string) (string, error) {
+func Part2(input string) (int, error) {
 	grid := util.Gridify(input)
 
 	total := 0
@@ -42,7 +42,7 @@ func Part2(input string) (string, error) {
 		}
 	}
 
-	return strconv.Itoa(total), nil
+	return total, nil
 }
 
 func findNeighborParts(grid [][]rune, symR, symC int) util.Set[part] {
