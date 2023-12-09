@@ -1,13 +1,9 @@
 package day00
 
-import (
-	
-)
-
-func Part1(input string) (string, error) {
-	return "qwer", nil
+func Part1(input string) (int, error) {
+	return 42, nil
 }
 
-func Part2(input string) (string, error) {
-	return "zxcv", nil
+func Part2(input string) (int, error) {
+	return 24, nil
 }
