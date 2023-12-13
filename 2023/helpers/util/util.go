@@ -30,6 +30,15 @@ func Gridify(s string) [][]rune {
 	return grid
 }
 
+func PrintGrid(grid [][]rune) {
+	for r := range grid {
+		for c := range grid[0] {
+			fmt.Printf("%c", grid[r][c])
+		}
+		fmt.Println()
+	}
+}
+
 type Set[T comparable] map[T]struct{}
 
 func NewSet[T comparable](vals ...T) Set[T] {
