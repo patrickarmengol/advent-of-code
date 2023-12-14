@@ -39,6 +39,17 @@ func PrintGrid(grid [][]rune) {
 	}
 }
 
+func SprintGrid(grid [][]rune) string {
+	chars := []rune{}
+	for r := range grid {
+		for c := range grid[0] {
+			chars = append(chars, grid[r][c])
+		}
+		chars = append(chars, '\n')
+	}
+	return string(chars)
+}
+
 type Set[T comparable] map[T]struct{}
 
 func NewSet[T comparable](vals ...T) Set[T] {
