@@ -17,6 +17,14 @@ func Make2DGrid[T any](n, m int) [][]T {
 	return matrix
 }
 
+func Fill2DGrid(grid [][]rune, fill rune) {
+	for r := range grid {
+		for c := range grid[0] {
+			grid[r][c] = fill
+		}
+	}
+}
+
 func Gridify(s string) [][]rune {
 	lines := parse.Lines(s)
 
