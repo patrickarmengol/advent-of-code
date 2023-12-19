@@ -1,7 +1,6 @@
 package day19
 
 import (
-	"fmt"
 	"strconv"
 	"strings"
 
@@ -229,12 +228,12 @@ func Part2(input string) (int, error) {
 
 	total := 0
 	for _, ps := range a {
-		fmt.Println(ps)
+		// fmt.Println(ps)
 		spanTotal := 1
 		for _, v := range ps {
 			spanTotal *= v.end - v.start + 1
 		}
-		fmt.Println(spanTotal)
+		// fmt.Println(spanTotal)
 		total += spanTotal
 	}
 
