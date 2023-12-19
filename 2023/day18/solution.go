@@ -37,12 +37,10 @@ func digBorder(instrs []instruction) ([]vertex, int) {
 
 	totalTiles := 0
 	for _, instr := range instrs {
-		rdiff := adjacencies[instr.dir].row * instr.steps
-		cdiff := adjacencies[instr.dir].col * instr.steps
-		totalTiles += intabs(rdiff) + intabs(cdiff)
+		totalTiles += instr.steps
 		cur = vertex{
-			row: cur.row + rdiff,
-			col: cur.col + cdiff,
+			row: cur.row + adjacencies[instr.dir].row*instr.steps,
+			col: cur.col + adjacencies[instr.dir].col*instr.steps,
 		}
 		vs = append(vs, cur)
 	}
