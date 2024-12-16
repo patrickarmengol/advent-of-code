@@ -1,2 +1,3 @@
 example*.txt
 input.txt
+.venv/
