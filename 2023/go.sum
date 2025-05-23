@@ -1,0 +1,6 @@
+github.com/dominikbraun/graph v0.23.0 h1:TdZB4pPqCLFxYhdyMFb1TBdFxp8XLcJfTTBQucVPgCo=
+github.com/dominikbraun/graph v0.23.0/go.mod h1:yOjYyogZLY1LSG9E33JWZJiq5k83Qy2C6POAuiViluc=
+github.com/patrickarmengol/megs v0.0.0-20231218233812-a94a94fb6063 h1:hgy9lZee2PRnxVhNTYW5tRAKQc0yyQDw531ffeFByGw=
+github.com/patrickarmengol/megs v0.0.0-20231218233812-a94a94fb6063/go.mod h1:JkdVg6oBhzqjlPJQHYc8Io/pwRnxz+TvXuz+nZA/oOM=
+github.com/zyedidia/generic v1.2.1 h1:Zv5KS/N2m0XZZiuLS82qheRG4X1o5gsWreGb0hR7XDc=
+github.com/zyedidia/generic v1.2.1/go.mod h1:ly2RBz4mnz1yeuVbQA/VFwGjK3mnHGRj1JuoG336Bis=
